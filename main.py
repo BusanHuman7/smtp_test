@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # GitHub Secrets에서 설정값 불러오기
-SMTP_SERVER = os.environ.get("SMTP_SERVER", "relay.xxx.com") # 백엔드 주소
+SMTP_SERVER = os.environ.get("SMTP_SERVER", "relay.skbroadband.com") # 백엔드 주소
 SMTP_PORT = int(os.environ.get("SMTP_PORT", 25))
 SMTP_USER = os.environ.get("SMTP_USER")
 SMTP_PASS = os.environ.get("SMTP_PASS")
