@@ -1,0 +1,27 @@
+name: Run SMTP Mail Test
+
+on:
+  workflow_dispatch: # 웹 화면에서 버튼 클릭으로 직접 실행 가능하도록 설정
+
+jobs:
+  send-mail:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 코드 체크아웃
+      uses: actions/checkout@v3
+
+    - name: 파이썬 환경 설정
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: SMTP 테스트 스크립트 실행
+      env:
+        SMTP_SERVER: "relay.skbroadband.com"  # 실제 relay 서버 주소로 수정해 주세요
+        SMTP_PORT: 25
+        SMTP_USER: ${{ secrets.SMTP_USER }}
+        SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+        TO_EMAIL: ${{ secrets.TO_EMAIL }}
+      run: python main.py
