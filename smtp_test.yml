@@ -18,7 +18,7 @@ jobs:
 
     - name: SMTP 테스트 스크립트 실행
       env:
-        SMTP_SERVER: "relay.xxx.com"  # 실제 사용하시는 relay 서버 주소
+        SMTP_SERVER: "relay.skbroadband.com"  # 실제 사용하시는 relay 서버 주소
         SMTP_PORT: 25
         SMTP_USER: ${{ secrets.SMTP_USER }}
         SMTP_PASS: ${{ secrets.SMTP_PASS }}
